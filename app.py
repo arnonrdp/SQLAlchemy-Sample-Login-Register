@@ -29,10 +29,9 @@ class User(db.Model):
 
 @app.route("/")
 def index():
-    user = User().__repr__()
     if not session.get("name"):
         return redirect('/login')
-    return render_template("index.html", user=user)
+    return render_template("index.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
